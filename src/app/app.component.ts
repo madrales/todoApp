@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'todo-app';
 
   todoArray = [];
-
+  @ViewChild('todoForm', {static: false}) todoForm;
   addTodo(value){
     if(value != ""){
       this.todoArray.push(value);
@@ -30,6 +30,7 @@ export class AppComponent {
     if(form != ""){
       console.log(form);
       this.todoArray.push(form.todo);
+      this.todoForm.resetForm();
     }else{
       alert("todo field required");
     }
