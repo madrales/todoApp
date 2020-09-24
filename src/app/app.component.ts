@@ -26,4 +26,12 @@ export class AppComponent {
       }
     }
   }
+  todoSubmit(form:any){
+    if(form != ""){
+      console.log(form);
+      this.todoArray.push(form.todo);
+    }else{
+      alert("todo field required");
+    }
+  }
 }
